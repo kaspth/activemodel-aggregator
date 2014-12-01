@@ -41,23 +41,15 @@ class AggregatorTest < ActiveSupport::TestCase
   end
 end
 
-class Event < Record::Base
-  attr_accessor :name
-
-  validates_presence_of :name
-
-  def self.attribute_names
-    [:name]
-  end
-end
-
 class AggregatorValidationTest < ActiveSupport::TestCase
   class Invite < ActiveModel::Aggregator
-    aggregate :event
+    aggregate :person
+
+    validates_presence_of :person_name
   end
 
   setup do
-    @invite = Invite.new(event_name: 'Secret Meet')
+    @invite = Invite.new(person_name: 'David')
   end
 
   test "valid" do
@@ -65,14 +57,14 @@ class AggregatorValidationTest < ActiveSupport::TestCase
   end
 
   test "invalid" do
-    @invite.event_name = nil
+    @invite.person_name = nil
     assert_not @invite.valid?
   end
 
   test "collects errors" do
-    @invite.event_name = nil
+    @invite.person_name = nil
     @invite.valid?
 
-    assert_includes @invite.errors.first.full_messages, "Name can't be blank"
+    assert_includes @invite.errors.full_messages, "Person name can't be blank"
   end
 end

@@ -19,7 +19,6 @@ module ActiveModel
     end
 
     aggregator_method :persisted?
-    aggregator_method :valid?
     aggregator_method :combine
 
     def save
