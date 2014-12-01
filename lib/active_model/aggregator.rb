@@ -21,7 +21,6 @@ module ActiveModel
     aggregator_method :persisted?
     aggregator_method :valid?
     aggregator_method :combine
-    aggregator_method :errors, iterator: :map
 
     def save
       combine if valid?

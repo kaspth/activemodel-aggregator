@@ -17,9 +17,9 @@ module ActiveModel
           name.to_s.singularize.camelize.constantize
         end
 
-        def aggregator_method(method_name, iterator: :all?)
+        def aggregator_method(method_name)
           define_method method_name do
-            aggregates.map { |a| send(a) }.send iterator, &method_name
+            aggregates.map { |a| send(a) }.all?(&method_name)
           end
         end
 
