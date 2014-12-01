@@ -12,7 +12,7 @@ module ActiveModel
 
     attr_reader :attributes
 
-    def initialize(attributes)
+    def initialize(attributes = nil)
       @attributes = attributes
 
       assign_attributes(attributes)
