@@ -46,7 +46,7 @@ class Event < Record::Base
 
   validates_presence_of :name
 
-  def self.attributes
+  def self.attribute_names
     [:name]
   end
 end

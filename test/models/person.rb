@@ -1,7 +1,7 @@
 class Person < Record::Base
   attr_accessor :name
 
-  def self.attributes
+  def self.attribute_names
     [:name]
   end
 

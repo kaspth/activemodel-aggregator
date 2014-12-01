@@ -8,7 +8,7 @@ module Accessors
         define_method("#{name}=") { |v| instance_variable_set("@#{name}", v) }
         define_method("#{name}_attributes") { model_attrs[name] }
 
-        klass.attributes.each do |attr|
+        klass.attribute_names.each do |attr|
           delegate attr, to: name, prefix: true
 
           define_method "#{name}_#{attr}=" do |v|
