@@ -43,9 +43,7 @@ end
 
 class AggregatorValidationTest < ActiveSupport::TestCase
   class Invite < ActiveModel::Aggregator
-    aggregate :person
-
-    validates_presence_of :person_name
+    aggregate :person, required: :name
   end
 
   setup do
