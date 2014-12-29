@@ -1,5 +1,9 @@
 # Activemodel::Aggregator
 
+Based on https://gist.github.com/dhh/b0a106a00e8737280666
+
+This is currently a thought spill and not necessarily true. At the very least I wouldn't use it in production.
+
 ## Context aware validations
 
 Every aggregator has its own validation context, such that:
